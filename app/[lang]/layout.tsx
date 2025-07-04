@@ -6,6 +6,7 @@ import {
 } from '@/internationlization/locales';
 import { Metadata } from 'next';
 import { loader } from '@/internationlization/loader';
+import { Vazirmatn, Roboto } from 'next/font/google';
 
 export async function generateStaticParams() {
  return locales.map((locale) => ({
@@ -25,6 +26,18 @@ export async function generateMetadata({
  };
 }
 
+const vazirFont = Vazirmatn({
+ variable: '--vazir-font',
+ display: 'swap',
+ subsets: ['arabic'],
+});
+
+const robotoFont = Roboto({
+ variable: '--roboto-font',
+ display: 'swap',
+ subsets: ['latin'],
+});
+
 export default async function RootLayout({
  children,
  params,
@@ -36,7 +49,12 @@ export default async function RootLayout({
  const localeInfo = localesInfo[lang];
  return (
   <html lang={lang} dir={localeInfo.contentDirection}>
-   <body dir={localeInfo.contentDirection}>{children}</body>
+   <body
+    dir={localeInfo.contentDirection}
+    className={`${vazirFont.variable} ${robotoFont.variable}`}
+   >
+    {children}
+   </body>
   </html>
  );
 }
