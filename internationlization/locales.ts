@@ -1,13 +1,15 @@
-const localesInfo = [
- {
+const localesInfo = {
+ fa: {
   locale: 'fa',
+  contentDirection: 'rtl',
  },
- {
+ en: {
   locale: 'en',
+  contentDirection: 'ltr',
  },
-] as const;
-const locales = localesInfo.map((item) => item.locale);
+} as const;
+const locales = Object.keys(localesInfo) as SupportedLocales[];
 
-type SupportedLocales = (typeof locales)[number];
+type SupportedLocales = keyof typeof localesInfo;
 
 export { type SupportedLocales, localesInfo, locales };
