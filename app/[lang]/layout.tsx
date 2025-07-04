@@ -4,11 +4,25 @@ import {
  localesInfo,
  locales,
 } from '@/internationlization/locales';
+import { Metadata } from 'next';
+import { loader } from '@/internationlization/loader';
 
 export async function generateStaticParams() {
  return locales.map((locale) => ({
   lang: locale,
  }));
+}
+
+export async function generateMetadata({
+ params,
+}: Readonly<{
+ params: Promise<{ lang: SupportedLocales }>;
+}>): Promise<Metadata> {
+ const { lang } = await params;
+ const { meta } = await loader(lang);
+ return {
+  ...meta,
+ };
 }
 
 export default async function RootLayout({
