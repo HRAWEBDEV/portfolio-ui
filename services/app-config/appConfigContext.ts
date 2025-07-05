@@ -15,7 +15,7 @@ const appConfigContext = createContext<Store | null>(null);
 
 function useAppConfigContext() {
  const val = use(appConfigContext);
- if (!val) new OutOfContext();
+ if (!val) throw new OutOfContext();
  return val;
 }
 
