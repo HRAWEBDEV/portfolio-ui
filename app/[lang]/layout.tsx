@@ -7,6 +7,7 @@ import {
 import { Metadata } from 'next';
 import { loader } from '@/internationlization/loader';
 import { Vazirmatn, Roboto } from 'next/font/google';
+import AppConfigProvider from '@/services/app-config/AppConfigProvider';
 
 export async function generateStaticParams() {
  return locales.map((locale) => ({
@@ -50,10 +51,11 @@ export default async function RootLayout({
  return (
   <html lang={lang} dir={localeInfo.contentDirection}>
    <body
+    data-theme={'system-preferred'}
     dir={localeInfo.contentDirection}
     className={`${vazirFont.variable} ${robotoFont.variable}`}
    >
-    {children}
+    <AppConfigProvider lang={lang}>{children}</AppConfigProvider>
    </body>
   </html>
  );
