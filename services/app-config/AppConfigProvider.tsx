@@ -10,6 +10,18 @@ import { type Store, appConfigContext } from './appConfigContext';
 import { getThemeStorage, setThemeStorage } from './themeStorage';
 import { setLangCookie } from './langCookie';
 
+function changeBodyTheme(theme: Store['appTheme']) {
+ if (theme === 'system') {
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+   document.body.setAttribute('data-theme', 'dark');
+  } else {
+   document.body.setAttribute('data-theme', 'light');
+  }
+ } else {
+  document.body.setAttribute('data-theme', theme);
+ }
+}
+
 export default function AppConfigProvider({
  children,
  lang,
@@ -26,15 +38,7 @@ export default function AppConfigProvider({
  const changeAppTheme = useCallback((newTheme: Store['appTheme']) => {
   setAppTheme(newTheme);
   setThemeStorage(newTheme);
-  if (newTheme === 'system') {
-   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.body.setAttribute('data-theme', 'dark');
-   } else {
-    document.body.setAttribute('data-theme', 'light');
-   }
-  } else {
-   document.body.setAttribute('data-theme', newTheme);
-  }
+  changeBodyTheme(newTheme);
  }, []);
 
  const ctx = useMemo(
@@ -54,6 +58,24 @@ export default function AppConfigProvider({
    changeAppTheme(storedTheme);
   }
  }, [changeAppTheme]);
+
+ useEffect(() => {
+  if (appTheme !== 'system') return;
+  const abortController = new AbortController();
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener(
+   'change',
+   () => {
+    changeBodyTheme('system');
+   },
+   { signal: abortController.signal }
+  );
+  return () => {
+   if (abortController) {
+    abortController.abort();
+   }
+  };
+ }, [appTheme]);
+
  return (
   <appConfigContext.Provider value={ctx}>{children}</appConfigContext.Provider>
  );
