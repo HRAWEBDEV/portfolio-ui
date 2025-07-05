@@ -8,7 +8,7 @@ function setThemeStorage(theme: AppTheme) {
 
 function getThemeStorage(): AppTheme {
  const theme = localStorage.getItem(storageName);
- return (theme as AppTheme) || 'system-preferred';
+ return (theme as AppTheme) || 'system';
 }
 
 export { setThemeStorage, getThemeStorage };

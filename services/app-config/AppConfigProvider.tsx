@@ -26,7 +26,15 @@ export default function AppConfigProvider({
  const changeAppTheme = useCallback((newTheme: Store['appTheme']) => {
   setAppTheme(newTheme);
   setThemeStorage(newTheme);
-  document.body.setAttribute('data-theme', newTheme);
+  if (newTheme === 'system') {
+   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.body.setAttribute('data-theme', 'dark');
+   } else {
+    document.body.setAttribute('data-theme', 'light');
+   }
+  } else {
+   document.body.setAttribute('data-theme', newTheme);
+  }
  }, []);
 
  const ctx = useMemo(
