@@ -80,7 +80,8 @@
  --sidebar-border: oklch(0.922 0 0);
  --sidebar-ring: oklch(0.708 0 0);
  /*  */
- --website-header-height: 4rem;
+ --website-header-height: 6rem;
+ --website-container-max-w: 75rem;
 }
 
 [data-theme='dark'] {
