@@ -1,3 +1,4 @@
+'use client';
 import { Button } from '@/components/ui/button';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import {
@@ -8,42 +9,70 @@ import {
  DrawerTitle,
  DrawerTrigger,
 } from '@/components/ui/drawer';
-import { type WithDictionary } from '@/internationlization/loader';
+import { Dictionary, type WithDictionary } from '@/internationlization/loader';
 import Link from 'next/link';
 import { IoIosClose } from 'react-icons/io';
+import { motion } from 'motion/react';
+import { usePathname } from 'next/navigation';
 
-export default async function Nav({
- dic: { websiteNavigation },
-}: WithDictionary) {
- const anchorClasses =
-  'block p-4 border-neutral-300 dark:border-neutral-700 lg:border-0 lg:py-[0.63rem]';
+const menuItems: {
+ name: keyof Dictionary['websiteNavigation'];
+ link: string;
+}[] = [
+ {
+  name: 'home',
+  link: '/',
+ },
+ {
+  name: 'about',
+  link: '/about',
+ },
+ {
+  name: 'projects',
+  link: '/projects',
+ },
+ {
+  name: 'articles',
+  link: '/articles',
+ },
+ {
+  name: 'uses',
+  link: '/uses',
+ },
+];
+
+export default function Nav({ dic: { websiteNavigation } }: WithDictionary) {
+ const pathname = usePathname();
+ const activePath = pathname.split('/')[2];
+
  const navigationList = (
   <ul className='lg:flex max-lg:[&>li:not(:last-child)_a]:border-b'>
-   <li>
-    <Link href='/' className={anchorClasses}>
-     <span>{websiteNavigation.home}</span>
-    </Link>
-   </li>
-   <li>
-    <Link href='/about' className={anchorClasses}>
-     <span>{websiteNavigation.about}</span>
-    </Link>
-   </li>
-   <li>
-    <Link href='/projects' className={anchorClasses}>
-     <span>{websiteNavigation.projects}</span>
-    </Link>
-   </li>
-   <li>
-    <Link href='articles' className={anchorClasses}>
-     <span>{websiteNavigation.articles}</span>
-    </Link>
-   </li>
-   <li>
-    <Link href='uses' className={anchorClasses}>
-     <span>{websiteNavigation.uses}</span>
-    </Link>
-   </li>
+   {menuItems.map((menu) => {
+    const isMenuActive = menu.link === `/${activePath || ''}`;
+    return (
+     <li
+      data-active={isMenuActive}
+      key={menu.name}
+      className='relative grid group'
+     >
+      <Link
+       href={menu.link}
+       className={
+        'block p-4 border-neutral-300 dark:border-neutral-700 lg:border-0 lg:py-[0.63rem] hover:text-teal-700  dark:hover:text-teal-300 group-data-[active="true"]:text-teal-700 dark:group-data-[active="true"]:text-teal-300 transition-colors lg:text-center z-[2]'
+       }
+      >
+       <span>{websiteNavigation[menu.name]}</span>
+      </Link>
+      {isMenuActive && (
+       <motion.div
+        layoutId='underline'
+        id='underline'
+        className='hidden lg:block absolute inset-x-1 -bottom-px h-[2px] bg-linear-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0'
+       />
+      )}
+     </li>
+    );
+   })}
   </ul>
  );
 
