@@ -1,12 +1,16 @@
 import { createContext, use } from 'react';
 import { OutOfContext } from '@/utils/OutOfContext';
-import { type SupportedLocales } from '@/internationlization/locales';
+import {
+ type SupportedLocales,
+ LocaleInfo,
+} from '@/internationlization/locales';
 
 type AppTheme = 'light' | 'dark' | 'system';
 
 type Store = {
  appTheme: AppTheme;
  activeLang: SupportedLocales;
+ activeLangInfo: LocaleInfo[keyof LocaleInfo];
  changeActiveLang: (locale: SupportedLocales) => void;
  changeAppTheme: (theme: AppTheme) => void;
 };

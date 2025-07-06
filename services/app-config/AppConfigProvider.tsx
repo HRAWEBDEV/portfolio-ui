@@ -6,6 +6,7 @@ import {
  useCallback,
  useEffect,
 } from 'react';
+import { localesInfo } from '@/internationlization/locales';
 import { type Store, appConfigContext } from './appConfigContext';
 import { getThemeStorage, setThemeStorage } from './themeStorage';
 import { setLangCookie } from './langCookie';
@@ -31,6 +32,8 @@ export default function AppConfigProvider({
  const [appTheme, setAppTheme] = useState<Store['appTheme']>('system');
  const [activeLang, setActiveLang] = useState<Store['activeLang']>(lang);
 
+ const activeLangInfo = useMemo(() => localesInfo[activeLang], [activeLang]);
+
  const changeActiveLang = useCallback((newLang: Store['activeLang']) => {
   setLangCookie(newLang);
   setActiveLang(newLang);
@@ -49,10 +52,11 @@ export default function AppConfigProvider({
    ({
     activeLang,
     appTheme,
+    activeLangInfo,
     changeActiveLang: changeActiveLang,
     changeAppTheme: changeAppTheme,
    } as Store),
-  [activeLang, appTheme, changeActiveLang, changeAppTheme]
+  [activeLang, appTheme, changeActiveLang, changeAppTheme, activeLangInfo]
  );
 
  useEffect(() => {

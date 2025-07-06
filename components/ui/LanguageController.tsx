@@ -21,7 +21,7 @@ import { localesInfo } from '@/internationlization/locales';
 import { Badge } from '@/components/ui/badge';
 
 export default function LanguageController() {
- const { changeActiveLang } = useAppConfigContext();
+ const { activeLangInfo, changeActiveLang } = useAppConfigContext();
  return (
   <div>
    <DropdownMenu>
@@ -36,7 +36,9 @@ export default function LanguageController() {
        <GrLanguage className='size-5' />
       </Button>
       <div className='absolute end-0 top-0 pointer-events-none'>
-       <Badge className='p-[0.1rem] size-5'>فا</Badge>
+       <Badge className='p-[0.1rem] size-5 uppercase'>
+        {activeLangInfo.shortName}
+       </Badge>
       </div>
      </div>
     </DropdownMenuTrigger>
