@@ -10,14 +10,15 @@ import {
 } from '@/components/ui/drawer';
 import { type WithDictionary } from '@/internationlization/loader';
 import Link from 'next/link';
+import { IoIosClose } from 'react-icons/io';
 
 export default async function Nav({
  dic: { websiteNavigation },
 }: WithDictionary) {
  const anchorClasses =
-  'block p-4 border-b border-neutral-300 dark:border-neutral-700 lg:border-0 lg:py-[0.63rem]';
+  'block p-4 border-neutral-300 dark:border-neutral-700 lg:border-0 lg:py-[0.63rem]';
  const navigationList = (
-  <ul className='lg:flex'>
+  <ul className='lg:flex max-lg:[&>li:not(:last-child)_a]:border-b'>
    <li>
     <Link href='/' className={anchorClasses}>
      <span>{websiteNavigation.home}</span>
@@ -63,11 +64,22 @@ export default async function Nav({
     </DrawerTrigger>
     <DrawerContent>
      <DrawerHeader>
-      <DrawerTitle className='text-center text-lg font-semibold'>
-       {websiteNavigation.menu}
+      <DrawerTitle className='text-lg font-medium flex justify-between items-center'>
+       <div className='basis-[4rem]'></div>
+       <span>{websiteNavigation.menu}</span>
+       <div className='basis-[4rem] text-end'>
+        <DrawerClose asChild>
+         <Button
+          variant='ghost'
+          size='icon'
+          className='text-red-700 dark:text-red-400'
+         >
+          <IoIosClose className='size-8' />
+         </Button>
+        </DrawerClose>
+       </div>
       </DrawerTitle>
       <div className='mt-8'>{navigationList}</div>
-      <DrawerClose className='absolute top-2 end-2' />
      </DrawerHeader>
     </DrawerContent>
    </Drawer>
