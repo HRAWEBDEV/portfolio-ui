@@ -4,5 +4,13 @@
   "description": "web developer portfolio site",
   "author": "hamid reza akbari",
   "keywords": "web developer,portfolio,javascript,typescript,nextjs,reactjs,..."
+ },
+ "websiteNavigation": {
+  "menu": "منـــو",
+  "home": "خــانه",
+  "about": "درباره‌ من",
+  "projects": "پروژه‌ها",
+  "articles": "مقالات",
+  "uses": "ابزار"
  }
 }
