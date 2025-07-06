@@ -49,7 +49,7 @@ export default async function Nav({
  return (
   <nav className='self-center order-1 lg:order-2 lg:grow lg:flex lg:justify-center'>
    <Drawer>
-    <DrawerTrigger className='lg:hidden'>
+    <DrawerTrigger className='lg:hidden' asChild>
      <div className='inline-grid p-[2px] border border-neutral-300 rounded-full text-neutral-600 dark:border-neutral-700 dark:text-neutral-400 relative self-center bg-background shadow-lg'>
       <Button
        className='cursor-pointer'

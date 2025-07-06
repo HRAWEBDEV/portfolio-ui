@@ -34,6 +34,9 @@ export default function AppConfigProvider({
  const changeActiveLang = useCallback((newLang: Store['activeLang']) => {
   setLangCookie(newLang);
   setActiveLang(newLang);
+  const splitPath = location.pathname.split('/');
+  splitPath[1] = newLang;
+  location.href = `${splitPath.join('/')}${location.search}`;
  }, []);
  const changeAppTheme = useCallback((newTheme: Store['appTheme']) => {
   setAppTheme(newTheme);

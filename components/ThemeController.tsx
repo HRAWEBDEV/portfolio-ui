@@ -17,8 +17,8 @@ export default function ThemeController() {
  }
 
  return (
-  <div className='self-center lg:basis-[9rem]'>
-   <div className='inline-grid p-[2px] border border-neutral-300 rounded-full text-neutral-600 dark:border-neutral-700 dark:text-neutral-400 relative bg-background shadow-lg order-2 lg:order-1'>
+  <div className='self-center lg:basis-[9rem] order-2 lg:order-1'>
+   <div className='inline-grid p-[2px] border border-neutral-300 rounded-full text-neutral-600 dark:border-neutral-700 dark:text-neutral-400 relative bg-background shadow-lg'>
     <div
      className={`absolute inset-0 p-[2px] rounded-full flex items-center ${flexJustify} z-[0]`}
     >
