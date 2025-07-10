@@ -1,3 +1,8 @@
+import Hero from './components/home/Hero';
 export default async function Home() {
- return <div className=''></div>;
+ return (
+  <div>
+   <Hero />
+  </div>
+ );
 }

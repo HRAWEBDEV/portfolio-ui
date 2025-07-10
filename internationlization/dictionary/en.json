@@ -1,1 +1,16 @@
-{}
+{
+ "meta": {
+  "title": "Portfolio",
+  "description": "web developer portfolio site",
+  "author": "hamid reza akbari",
+  "keywords": "web developer,portfolio,javascript,typescript,nextjs,reactjs,..."
+ },
+ "websiteNavigation": {
+  "menu": "Menu",
+  "home": "Home",
+  "about": "About",
+  "projects": "Projects",
+  "articles": "Articles",
+  "uses": "Uses"
+ }
+}

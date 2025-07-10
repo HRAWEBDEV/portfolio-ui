@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import LanguageController from '@/components/ui/LanguageController';
 
 export default function Profile() {

@@ -46,7 +46,7 @@ export default function Nav({ dic: { websiteNavigation } }: WithDictionary) {
  const activePath = pathname.split('/')[2];
 
  const navigationList = (
-  <ul className='lg:flex max-lg:[&>li:not(:last-child)_a]:border-b'>
+  <ul className='lg:flex max-lg:[&>li:not(:last-child)_a]:border-b h-full'>
    {menuItems.map((menu) => {
     const isMenuActive = menu.link === `/${activePath || ''}`;
     return (
@@ -58,7 +58,7 @@ export default function Nav({ dic: { websiteNavigation } }: WithDictionary) {
       <Link
        href={menu.link}
        className={
-        'block p-4 border-neutral-300 dark:border-neutral-700 lg:border-0 lg:py-[0.63rem] hover:text-teal-700  dark:hover:text-teal-300 group-data-[active="true"]:text-teal-700 dark:group-data-[active="true"]:text-teal-300 transition-colors lg:text-center z-[2]'
+        'p-4 border-neutral-300 dark:border-neutral-700 lg:border-0 lg:py-[0.63rem] hover:text-teal-700  dark:hover:text-teal-300 group-data-[active="true"]:text-teal-700 dark:group-data-[active="true"]:text-teal-300 transition-colors lg:text-center z-[2] font-medium text-[0.9rem] flex items-center justify-center'
        }
       >
        <span>{websiteNavigation[menu.name]}</span>
@@ -77,7 +77,7 @@ export default function Nav({ dic: { websiteNavigation } }: WithDictionary) {
  );
 
  return (
-  <nav className='self-center order-1 lg:order-2 lg:grow lg:flex lg:justify-center'>
+  <nav className='self-center order-1 lg:order-2 lg:grow lg:flex lg:justify-center min-h-[2.875rem]'>
    <Drawer>
     <DrawerTrigger className='lg:hidden' asChild>
      <div className='inline-grid p-[2px] border border-neutral-300 rounded-full text-neutral-600 dark:border-neutral-700 dark:text-neutral-400 relative self-center bg-background shadow-lg'>

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Container from './components/Container';
 import { type WithParams } from '@/utils/params';
 import { loader } from '@/internationlization/loader';
+import Main from './components/Main';
 
 export default async function layout({
  children,
@@ -14,7 +15,7 @@ export default async function layout({
   <div className='bg-neutral-200 dark:bg-black'>
    <Container>
     <Header dic={dic} />
-    {children}
+    <Main>{children}</Main>
    </Container>
   </div>
  );

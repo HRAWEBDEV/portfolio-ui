@@ -5,7 +5,7 @@ import { type WithDictionary } from '@/internationlization/loader';
 
 export default async function Header({ dic }: WithDictionary) {
  return (
-  <header className='sticky top-0 start-0 end-0'>
+  <header className='sticky top-0 start-0 end-0 px-4 lg:px-8'>
    <div className='h-[var(--website-header-height)] flex gap-4 max-w-[var(--website-container-max-w)] mx-auto'>
     <ThemeController />
     <Nav dic={dic} />

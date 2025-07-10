@@ -8,7 +8,7 @@ type WithDictionary = {
 
 const dictionaries = {
  fa: () => import('./dictionary/fa.json').then((md) => md.default),
- en: () => import('./dictionary/fa.json').then((md) => md.default),
+ en: () => import('./dictionary/en.json').then((md) => md.default),
 };
 
 async function loader(locale: SupportedLocales) {
