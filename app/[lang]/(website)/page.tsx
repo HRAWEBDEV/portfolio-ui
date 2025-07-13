@@ -12,7 +12,7 @@ export default async function Home({ params }: WithParams) {
   <div>
    <Hero />
    <Gallery />
-   <div className='lg:grid lg:gap-8 lg:grid-cols-[1fr_25rem]'>
+   <div className='lg:grid lg:gap-8 lg:grid-cols-[1fr_25rem] items-start'>
     <ProjectsOverview />
     <WorkOverview dic={dic} />
    </div>
