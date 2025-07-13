@@ -1,6 +1,6 @@
 export default function Gallery() {
  return (
-  <section className='relative h-[12rem] lg:h-[20rem] mb-12'>
+  <section className='relative h-[12rem] lg:h-[20rem] mb-16'>
    <div className='absolute end-0 start-0 flex justify-center gap-6'>
     {Array.from({ length: 5 }, (_, i) => i).map((i) => {
      let rotateDirection = 1;
