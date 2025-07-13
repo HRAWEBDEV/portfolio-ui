@@ -6,7 +6,7 @@ import { IoLogoLinkedin } from 'react-icons/io5';
 
 export default function Hero() {
  return (
-  <div>
+  <section className='mb-24'>
    <Link href='/' className='block size-24 rounded-full overflow-hidden mb-6'>
     <img
      src='/images/resume-image.jpg'
@@ -42,6 +42,6 @@ export default function Hero() {
      </Button>
     </div>
    </div>
-  </div>
+  </section>
  );
 }
