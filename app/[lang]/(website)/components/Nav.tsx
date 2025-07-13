@@ -9,37 +9,12 @@ import {
  DrawerTitle,
  DrawerTrigger,
 } from '@/components/ui/drawer';
-import { Dictionary, type WithDictionary } from '@/internationlization/loader';
+import { type WithDictionary } from '@/internationlization/loader';
 import Link from 'next/link';
 import { IoIosClose } from 'react-icons/io';
 import { motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
-
-const menuItems: {
- name: keyof Dictionary['websiteNavigation'];
- link: string;
-}[] = [
- {
-  name: 'home',
-  link: '/',
- },
- {
-  name: 'about',
-  link: '/about',
- },
- {
-  name: 'projects',
-  link: '/projects',
- },
- {
-  name: 'articles',
-  link: '/articles',
- },
- {
-  name: 'uses',
-  link: '/uses',
- },
-];
+import { menuItems } from '../utils/menuItems';
 
 export default function Nav({ dic: { websiteNavigation } }: WithDictionary) {
  const pathname = usePathname();

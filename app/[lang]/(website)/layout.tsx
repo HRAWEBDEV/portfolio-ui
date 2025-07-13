@@ -4,6 +4,7 @@ import Container from './components/Container';
 import { type WithParams } from '@/utils/params';
 import { loader } from '@/internationlization/loader';
 import Main from './components/Main';
+import Footer from './components/Footer';
 
 export default async function layout({
  children,
@@ -16,6 +17,7 @@ export default async function layout({
    <Container>
     <Header dic={dic} />
     <Main>{children}</Main>
+    <Footer dic={dic} />
    </Container>
   </div>
  );

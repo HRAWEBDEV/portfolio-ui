@@ -3,7 +3,9 @@
   "title": "Portfolio",
   "description": "web developer portfolio site",
   "author": "hamid reza akbari",
-  "keywords": "web developer,portfolio,javascript,typescript,nextjs,reactjs,..."
+  "keywords": "web developer,portfolio,javascript,typescript,nextjs,reactjs,...",
+  "businessName": "HRA",
+  "allRightsArePreserved": "all rights are preserved"
  },
  "websiteNavigation": {
   "menu": "Menu",
