@@ -8,15 +8,18 @@ export default function WorkOverview({}: WithDictionary) {
  return (
   <section className='p-4 border border-neutral-300 dark:border-neutral-700 rounded-xl bg-neutral-100 dark:bg-background'>
    <div>
-    <div className='flex flex-wrap gap-3 items-center font-medium mb-6'>
+    <div className='flex flex-wrap gap-3 items-center font-medium mb-4'>
      <MdWorkHistory className='size-6' />
      <span>کـــارها</span>
     </div>
-    <div className='mb-6'>
+    <div className='mb-4'>
      <ul>
       {Array.from({ length: 2 }, (_, i) => i).map((i) => (
-       <li key={i} className='mb-4'>
-        <Link href='#' className='block'>
+       <li key={i} className='mb-2'>
+        <Link
+         href='#'
+         className='block p-2 rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all'
+        >
          <div className='flex justify-between items-end'>
           <div className='flex gap-2'>
            <div className='size-10 rounded-full bg-red-600'></div>
@@ -38,7 +41,7 @@ export default function WorkOverview({}: WithDictionary) {
       ))}
      </ul>
     </div>
-    <Button className='w-full'>
+    <Button className='w-full' size='lg'>
      <FaDownload />
      <span>دانلود رزرومه</span>
     </Button>
