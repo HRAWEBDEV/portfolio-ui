@@ -15,8 +15,9 @@ export default function Hero() {
     />
    </Link>
    <div>
-    <h1 className='text-2xl lg:text-4xl font-bold mb-6 leading-9 text-balance'>
-     طــــراح برنامه، برنامه نویس‌وب و برنامه نویس فرانت‌اند
+    <h1 className='text-2xl lg:text-4xl font-bold mb-6 leading-9 lg:leading-12 text-balance'>
+     <span>طــــراح برنامه، برنامه نویس‌وب</span> <br />
+     <span>و برنامه نویس فرانت‌اند</span>
     </h1>
     <p className='w-[min(100%,43rem)] leading-7 text-neutral-600 dark:text-neutral-400 mb-6'>
      اگر شما یک طراح هستین و یا با طراحی های گرافیکی سروکار دارید به متن های
