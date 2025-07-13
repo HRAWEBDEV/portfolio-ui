@@ -10,7 +10,10 @@ export default function ProjectsOverview() {
   <section>
    <ul>
     {Array.from({ length: 3 }, (_, i) => i).map((i) => (
-     <li key={i} className='mb-6'>
+     <li
+      key={i}
+      className='p-4 hover:bg-neutral-100 dark:hover:bg-background rounded-lg'
+     >
       <Link href='#' className='block'>
        <div className='text-neutral-600 dark:text-neutral-400 text-xs'>
         {timeFormatter.format(new Date())}
