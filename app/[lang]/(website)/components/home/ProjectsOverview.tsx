@@ -15,7 +15,7 @@ export default function ProjectsOverview() {
       className='p-4 hover:bg-neutral-50 dark:hover:bg-background rounded-lg'
      >
       <Link href='#' className='block'>
-       <div className='text-neutral-600 dark:text-neutral-400 text-xs'>
+       <div className='text-neutral-600 dark:text-neutral-400 text-xs relative after:content-[""] after:absolute after:start-0 after:h-full after:w-[2px] after:bg-neutral-300 dark:after:bg-neutral-700 ps-2'>
         {timeFormatter.format(new Date())}
        </div>
        <h3 className='text-lg font-medium mb-2'>بازبینی سیستم هتل‌داری</h3>
