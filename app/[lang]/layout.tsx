@@ -7,8 +7,9 @@ import {
 } from '@/internationlization/locales';
 import { Metadata } from 'next';
 import { loader } from '@/internationlization/loader';
-import { Vazirmatn, Roboto } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import AppConfigProvider from '@/services/app-config/AppConfigProvider';
+import LocalFont from 'next/font/local';
 
 export async function generateStaticParams() {
  return locales.map((locale) => ({
@@ -28,10 +29,71 @@ export async function generateMetadata({
  };
 }
 
-const vazirFont = Vazirmatn({
- variable: '--vazir-font',
+const faSans = LocalFont({
  display: 'swap',
- subsets: ['arabic'],
+ variable: '--font-fa-sans',
+ src: [
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum-UltraLight.woff2',
+   weight: '100',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum-UltraLight.woff',
+   weight: '100',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum-Light.woff2',
+   weight: '300',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum-Light.woff',
+   weight: '300',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum.woff2',
+   weight: '400',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum.woff',
+   weight: '400',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum-Medium.woff2',
+   weight: '500',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum-Medium.woff',
+   weight: '500',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum-Bold.woff2',
+   weight: '700',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum-Bold.woff',
+   weight: '700',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum-Black.woff2',
+   weight: '900',
+   style: 'normal',
+  },
+  {
+   path: '../../public/fonts/fa/sans/IRANSansWebFaNum-Black.woff',
+   weight: '900',
+   style: 'normal',
+  },
+ ],
 });
 
 const robotoFont = Roboto({
@@ -54,7 +116,7 @@ export default async function RootLayout({
    <body
     data-theme={'system-preferred'}
     dir={localeInfo.contentDirection}
-    className={`${vazirFont.variable} ${robotoFont.variable}`}
+    className={`${faSans.variable} ${robotoFont.variable}`}
    >
     <AppConfigProvider lang={lang}>{children}</AppConfigProvider>
    </body>

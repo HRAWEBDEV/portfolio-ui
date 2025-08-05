@@ -9,7 +9,7 @@ export default function WorkOverview({}: WithDictionary) {
   <section className='p-4 border border-neutral-300 dark:border-neutral-700 rounded-xl bg-neutral-100 dark:bg-background'>
    <div>
     <div className='flex flex-wrap gap-3 items-center font-medium mb-4'>
-     <MdWorkHistory className='size-6' />
+     <MdWorkHistory className='size-6 text-neutral-500 dark:text-neutral-400' />
      <span>کـــارها</span>
     </div>
     <div className='mb-4'>

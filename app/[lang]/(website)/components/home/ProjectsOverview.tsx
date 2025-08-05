@@ -18,8 +18,8 @@ export default function ProjectsOverview() {
        <div className='text-neutral-600 dark:text-neutral-400 text-xs'>
         {timeFormatter.format(new Date())}
        </div>
-       <h3 className='text-xl font-medium mb-2'>بازبینی سیستم هتل‌داری</h3>
-       <p className='text-[0.8rem] leading-6 w-[min(100%,33rem)] mb-1'>
+       <h3 className='text-lg font-medium mb-2'>بازبینی سیستم هتل‌داری</h3>
+       <p className='text-[0.8rem] leading-6 w-[min(100%,33rem)] mb-1 text-neutral-600 dark:text-neutral-400'>
         اگر شما یک طراح هستین و یا با طراحی های گرافیکی سروکار دارید به متن های
         برخورده اید که با نام لورم ایپسوم شناخته می‌شوند. لورم ایپسوم یا طرح‌نما
         (به انگلیسی: Lorem ipsum) متنی ساختگی و بدون معنی است که برای امتحان

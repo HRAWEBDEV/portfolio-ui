@@ -44,6 +44,7 @@
  --radius-md: calc(var(--radius) - 2px);
  --radius-lg: var(--radius);
  --radius-xl: calc(var(--radius) + 4px);
+ --font-fa-sans: var(--font-fa-sans);
 }
 
 :root {
@@ -126,6 +127,6 @@
   @apply bg-background text-foreground font-roboto text-[0.95rem] overflow-x-hidden;
  }
  [dir='rtl'] body {
-  @apply font-vazir;
+  @apply font-fa-sans;
  }
 }
