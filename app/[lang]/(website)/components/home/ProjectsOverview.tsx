@@ -7,7 +7,7 @@ const timeFormatter = new Intl.DateTimeFormat('fa', {
 
 export default function ProjectsOverview() {
  return (
-  <section>
+  <section className='mb-6 lg:mb-0'>
    <ul>
     {Array.from({ length: 3 }, (_, i) => i).map((i) => (
      <li
