@@ -1,7 +1,5 @@
-import { type Dictionary } from '@/internationlization/loader';
-
 export const menuItems: {
- name: keyof Dictionary['websiteNavigation'];
+ name: string;
  link: string;
 }[] = [
  {

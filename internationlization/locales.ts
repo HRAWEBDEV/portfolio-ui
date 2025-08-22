@@ -1,12 +1,14 @@
 const localesInfo = {
  fa: {
   locale: 'fa',
+  extension: 'IR',
   contentDirection: 'rtl',
   name: 'فارسی',
   shortName: 'فا',
  },
  en: {
   locale: 'en',
+  extension: 'US',
   contentDirection: 'ltr',
   name: 'English',
   shortName: 'EN',

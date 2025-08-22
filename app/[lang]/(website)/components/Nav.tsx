@@ -9,14 +9,13 @@ import {
  DrawerTitle,
  DrawerTrigger,
 } from '@/components/ui/drawer';
-import { type WithDictionary } from '@/internationlization/loader';
 import Link from 'next/link';
 import { IoIosClose } from 'react-icons/io';
 import { motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
 import { menuItems } from '../utils/menuItems';
 
-export default function Nav({ dic: { websiteNavigation } }: WithDictionary) {
+export default function Nav() {
  const pathname = usePathname();
  const activePath = pathname.split('/')[2];
 
@@ -36,7 +35,7 @@ export default function Nav({ dic: { websiteNavigation } }: WithDictionary) {
         'p-4 border-neutral-300 dark:border-neutral-700 lg:border-0 lg:py-[0.63rem] hover:text-teal-700  dark:hover:text-teal-300 group-data-[active="true"]:text-teal-700 dark:group-data-[active="true"]:text-teal-300 transition-colors lg:text-center z-[2] font-medium text-[0.9rem] flex items-center justify-center'
        }
       >
-       <span>{websiteNavigation[menu.name]}</span>
+       {/* <span>{websiteNavigation[menu.name]}</span> */}
       </Link>
       {isMenuActive && (
        <motion.div
@@ -70,7 +69,7 @@ export default function Nav({ dic: { websiteNavigation } }: WithDictionary) {
      <DrawerHeader>
       <DrawerTitle className='text-lg font-medium flex justify-between items-center'>
        <div className='basis-[4rem]'></div>
-       <span>{websiteNavigation.menu}</span>
+       {/* <span>{websiteNavigation.menu}</span> */}
        <div className='basis-[4rem] text-end'>
         <DrawerClose asChild>
          <Button

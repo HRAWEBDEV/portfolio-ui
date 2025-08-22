@@ -1,10 +1,9 @@
-import { type WithDictionary } from '@/internationlization/loader';
 import { MdWorkHistory } from 'react-icons/md';
 import { Button } from '@/components/ui/button';
 import { FaDownload } from 'react-icons/fa6';
 import Link from 'next/link';
 
-export default function WorkOverview({}: WithDictionary) {
+export default function WorkOverview() {
  return (
   <section className='p-4 border border-neutral-300 dark:border-neutral-700 rounded-xl bg-neutral-100 dark:bg-background'>
    <div>

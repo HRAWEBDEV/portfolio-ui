@@ -83,6 +83,7 @@
  /*  */
  --website-header-height: 6rem;
  --website-container-max-w: 75rem;
+ --website-header-z-index: 50;
 }
 
 [data-theme='dark'] {

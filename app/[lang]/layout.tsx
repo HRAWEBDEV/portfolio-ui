@@ -5,8 +5,6 @@ import {
  localesInfo,
  locales,
 } from '@/internationlization/locales';
-import { Metadata } from 'next';
-import { loader } from '@/internationlization/loader';
 import { Roboto } from 'next/font/google';
 import AppConfigProvider from '@/services/app-config/AppConfigProvider';
 import LocalFont from 'next/font/local';
@@ -15,18 +13,6 @@ export async function generateStaticParams() {
  return locales.map((locale) => ({
   lang: locale,
  }));
-}
-
-export async function generateMetadata({
- params,
-}: Readonly<{
- params: Promise<{ lang: SupportedLocales }>;
-}>): Promise<Metadata> {
- const { lang } = await params;
- const { meta } = await loader(lang);
- return {
-  ...meta,
- };
 }
 
 const faSans = LocalFont({
