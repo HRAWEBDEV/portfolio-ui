@@ -14,22 +14,27 @@ export function useScrollWatcher({
  onScrollChange: ScrollChangeHandler;
 }) {
  const watcherRef = useRef<AbortController | null>(null);
-
+ const onScrollChangeRef = useRef(onScrollChange);
  useEffect(() => {
   let scrollPosition = 0;
-  let scrollDirection: ScrollDirection = 'up';
+  let scrollDirection: ScrollDirection = 'down';
   watcherRef.current = new AbortController();
   function watcher() {
    const bodyTopPosition = document.body.getBoundingClientRect().top;
    const scrollDiff = Math.abs(
     Math.abs(scrollPosition) - Math.abs(bodyTopPosition)
    );
-   if (scrollPosition > bodyTopPosition) {
-    scrollDirection = 'down';
-   }
-   scrollPosition = bodyTopPosition;
-   if (scrollDiff > threshold) {
-    onScrollChange({ direction: scrollDirection, position: scrollPosition });
+   if (scrollDiff > threshold || !bodyTopPosition) {
+    if (scrollPosition > bodyTopPosition && bodyTopPosition) {
+     scrollDirection = 'down';
+    } else {
+     scrollDirection = 'up';
+    }
+    scrollPosition = bodyTopPosition;
+    onScrollChangeRef.current({
+     direction: scrollDirection,
+     position: scrollPosition,
+    });
    }
   }
   window.addEventListener('scroll', watcher, {
@@ -38,7 +43,7 @@ export function useScrollWatcher({
   return () => {
    watcherRef.current?.abort();
   };
- }, [onScrollChange, threshold]);
+ }, [onScrollChangeRef, threshold]);
 
  return {
   abortController: watcherRef.current,
